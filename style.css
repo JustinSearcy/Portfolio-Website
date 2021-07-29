@@ -1,6 +1,7 @@
 :root {
     --main: rgb(19, 28, 43);
     --accent: rgb(49, 209, 169);
+    --accent-dim: rgba(49, 209, 169, 0.335);
     --text: rgb(226, 226, 226);
     --darker: rgba(0, 0, 0, 0.377);
 }
@@ -11,19 +12,25 @@ body {
 }
 
 header {
+    z-index: 10;
     font-size: 1.8vw;
     text-align: center; 
     background-color: var(--darker);
-    padding-bottom: 2vw;
-    padding-top: 2vw;
+    box-shadow: 0px 5px 5px var(--accent-dim);
     display: flex;
     justify-content: flex-end;
 }
 
 header a {
     color: var(--accent);
-    padding-left: 3vw;
-    padding-right: 3vw;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    padding-top: 30px;
+    transition: 0.2s;
+}
+
+header a:hover {
+    transform: scale(1.3);
 }
 
 main {
@@ -36,26 +43,27 @@ h4 {
 }
 
 p {
-    font-size: 1.2vw;
+    font-size: 18px;
 }
 
 
 li {
     text-align: left;
     padding-left: 33%;
-    font-size: 1vw;
-}
-
-button {
-    background-color: var(--accent);
-    color: black;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    font-size: 15px;
 }
 
 input {
     height: 60px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.sticky-header {
+    position: fixed;
+    top: 0;
+    height: 100px;
+    width: 100%;
 }
 
 .personal-info {
@@ -95,9 +103,86 @@ input {
     width: 60px;
     padding-left: 20px;
     padding-right: 20px;
+    transition: 0.2s;
+}
+
+.links img:hover {
+    transform: scale(1.3);
 }
 
 #about-me, #projects, #contact-me {
-    padding-top: 25px;
-    margin-top: 75px;
+    padding-top: 100px;
+}
+
+#contact-me img {
+    height: 91px;
+    width: 100px;
+}
+
+#projects {
+    margin: auto;
+}
+
+.project-list {
+    margin: auto;
+    width: fit-content;
+}
+
+.left-project, .right-project {
+    position: relative;
+    height: 350px;
+    width: 1200px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    z-index: 0;
+}
+
+.left-image {
+    position: absolute;
+    z-index: 1;
+    background-color: var(--darker);
+    width: 355.5px;
+    height: 200px;
+}
+
+.right-image {
+    position: absolute;
+    z-index: 1;
+    background-color: var(--darker);
+    width: 355.5px;
+    height: 200px;
+    left: 65%;
+}
+
+.left-info {
+    position: absolute;
+    height: 240px;
+    width: 750px;
+    background-color: var(--darker);
+    box-shadow: 5px 10px 10px var(--accent-dim);
+    top: 75px;
+    left: 10%;
+}
+
+.right-info {
+    position: absolute;
+    height: 240px;
+    width: 750px;
+    background-color: var(--darker);
+    box-shadow: -5px 10px 10px var(--accent-dim);
+    top: 75px;
+    right: 20%;
+}
+
+.project-image {
+    height: 200px;
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+    -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+}
+
+.project-image:hover {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
 }
