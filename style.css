@@ -9,11 +9,13 @@
 body {
     font-family: 'Courier New', Courier, monospace;
     background-color: var(--main);
+    margin: 0;
+    overflow-x: hidden;
 }
 
 header {
     z-index: 10;
-    font-size: 1.8vw;
+    font-size: 25px;
     text-align: center; 
     background-color: var(--darker);
     box-shadow: 0px 5px 5px var(--accent-dim);
@@ -36,6 +38,7 @@ header a:hover {
 main {
     color: var(--text);
     text-align: center;
+    width: 100%;
 }
 
 h4 {
@@ -128,61 +131,50 @@ input {
     width: fit-content;
 }
 
-.left-project, .right-project {
-    position: relative;
+.project {
+    display: flex;
     height: 350px;
-    width: 1200px;
+    width: 100%;
     margin-top: 100px;
     margin-bottom: 100px;
-    z-index: 0;
-}
-
-.left-image {
-    position: absolute;
-    z-index: 1;
-    background-color: var(--darker);
-    width: 355.5px;
-    height: 200px;
-}
-
-.right-image {
-    position: absolute;
-    z-index: 1;
-    background-color: var(--darker);
-    width: 355.5px;
-    height: 200px;
-    left: 65%;
+    justify-content: center;
 }
 
 .left-info {
-    position: absolute;
     height: 240px;
     width: 750px;
     background-color: var(--darker);
     box-shadow: 5px 10px 10px var(--accent-dim);
-    top: 75px;
-    left: 10%;
 }
 
 .right-info {
-    position: absolute;
     height: 240px;
     width: 750px;
     background-color: var(--darker);
     box-shadow: -5px 10px 10px var(--accent-dim);
-    top: 75px;
-    right: 20%;
 }
 
 .project-image {
-    height: 200px;
-    -webkit-filter: blur(3px);
-    filter: blur(3px);
-    -webkit-transition: all 0.2s ease;
-            transition: all 0.2s ease;
+    height: 240px;
 }
 
-.project-image:hover {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
+.fade-in {
+    opacity: 0;
+    transition: all 0.75s;
+}
+
+.fade-in.appear {
+    opacity: 1;
+}
+
+.from-left {
+    transform: translateX(-50%);
+}
+
+.from-right{
+    transform: translateX(50%);
+}
+
+.from-left.appear, .from-right.appear {
+    transform: translate(0);
 }
